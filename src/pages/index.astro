@@ -1,0 +1,36 @@
+---
+import { SignedIn } from "astro-clerk-auth/components/control";
+import { UserButton } from "astro-clerk-auth/components/interactive";
+import { User } from "astro:db";
+
+import { db, Role } from "astro:db";
+
+const role = await db.select().from(Role);
+
+const userDb = await db.select().from(User);
+// console.log(userDb);
+
+// console.log(role);
+
+const user = await Astro.locals.currentUser();
+const { userId } = Astro.locals.auth();
+
+if (!userId) {
+	return Astro.redirect("/auth/login");
+}
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body>
+		<SignedIn>
+			<UserButton afterSignOutUrl="/auth/login" />
+		</SignedIn>
+	</body>
+</html>

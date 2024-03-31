@@ -1,0 +1,13 @@
+---
+import AuthLayout from "../../layouts/AuthLayout.astro";
+import { SignUp } from "astro-clerk-auth/components/interactive";
+---
+
+<AuthLayout title="Register">
+    <SignUp
+        afterSignInUrl="/"
+        signInUrl="/auth/login"
+        afterSignUpUrl="/auth/select-role"
+        routing="hash"
+    />
+</AuthLayout>

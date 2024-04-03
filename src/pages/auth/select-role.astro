@@ -17,7 +17,7 @@ const checkEmail = await db
     .from(User)
     .where(eq(User.email, cureentUser.emailAddresses[0].emailAddress));
 
-if (checkEmail[0].email) {
+if (checkEmail[0]) {
     return Astro.redirect("/");
 }
 

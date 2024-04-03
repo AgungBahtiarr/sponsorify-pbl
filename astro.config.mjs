@@ -8,7 +8,7 @@ import db from "@astrojs/db";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [clerk(), tailwind(), react(), db()],
+  integrations: [clerk(), tailwind({applyBaseStyles: false}), react({experimentalReactChildren: true}), db()],
   output: 'server',
   adapter: node({
     mode: "standalone"

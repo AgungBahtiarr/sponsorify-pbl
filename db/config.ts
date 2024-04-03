@@ -7,7 +7,7 @@ const User = defineTable({
     name: column.text(),
     email: column.text({ unique: true }),
     password: column.text({ optional: true }),
-    idRole: column.number({ references: () => Role.columns.id })
+    idRole: column.number({ references: () => Role.columns.id }),
   }
 })
 

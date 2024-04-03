@@ -1,8 +1,8 @@
 ---
 const { title } = Astro.props;
-
-import { ClerkLayout } from "astro-clerk-auth/components/control";
 import "@/styles/globals.css";
+
+import { Dashboard2 } from "../blocks/dashboard2";
 ---
 
 <!doctype html>
@@ -13,8 +13,6 @@ import "@/styles/globals.css";
         <title>{title} - Sponsorify</title>
     </head>
     <body>
-        <div class="flex justify-center items-center h-screen">
-            <ClerkLayout><slot /></ClerkLayout>
-        </div>
+        <Dashboard2> <slot /></Dashboard2>
     </body>
 </html>

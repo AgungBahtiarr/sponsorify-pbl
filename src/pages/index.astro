@@ -3,16 +3,19 @@ import { SignedIn } from "astro-clerk-auth/components/control";
 import { UserButton } from "astro-clerk-auth/components/interactive";
 import { User } from "astro:db";
 
+
 import { db, Role } from "astro:db";
 
 const role = await db.select().from(Role);
 
 const userDb = await db.select().from(User);
-// console.log(userDb);
+console.log(userDb);
 
-// console.log(role);
+console.log(role);
 
 const user = await Astro.locals.currentUser();
+console.log(user);
+
 const { userId } = Astro.locals.auth();
 
 if (!userId) {

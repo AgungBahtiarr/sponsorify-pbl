@@ -1,1 +1,11 @@
-hello event
+---
+import EventLayout from "@/layouts/EventLayout.astro";
+
+if (Astro.request.method == "POST") {
+    const data = await Astro.request.formData();
+    const search = data.get("search");
+    console.log(search);
+}
+---
+
+<EventLayout title="Dashboard" />

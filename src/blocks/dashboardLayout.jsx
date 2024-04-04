@@ -1,4 +1,4 @@
-import {
+ import {
   Bell,
   CircleUser,
   Home,
@@ -23,7 +23,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 
-export function Dashboard2(props) {
+export function DashboardLayout(props) {
   return (
     <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
       <div className="hidden border-r bg-muted/40 md:block">
@@ -52,14 +52,14 @@ export function Dashboard2(props) {
                 className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
               >
                 <ShoppingCart className="h-4 w-4" />
-                Orders
+                Sponsor
               </a>
               <a
                 href="#"
                 className="flex items-center gap-3 rounded-lg bg-muted px-3 py-2 text-primary transition-all hover:text-primary"
               >
                 <Package className="h-4 w-4" />
-                Products{" "}
+                Pencarian{" "}
               </a>
               <a
                 href="#"

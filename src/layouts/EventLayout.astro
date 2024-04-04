@@ -2,7 +2,7 @@
 const { title } = Astro.props;
 import "@/styles/globals.css";
 
-import { Dashboard2 } from "../blocks/dashboard2";
+import { DashboardLayout } from "../blocks/dashboardLayout";
 ---
 
 <!doctype html>
@@ -13,6 +13,6 @@ import { Dashboard2 } from "../blocks/dashboard2";
         <title>{title} - Sponsorify</title>
     </head>
     <body>
-        <Dashboard2> <slot /></Dashboard2>
+        <DashboardLayout> <slot /></DashboardLayout>
     </body>
 </html>

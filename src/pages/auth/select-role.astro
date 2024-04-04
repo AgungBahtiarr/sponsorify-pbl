@@ -1,9 +1,7 @@
 ---
 import { eq } from "astro:db";
 import AuthLayout from "../../layouts/AuthLayout.astro";
-
 import { db, Role, User } from "astro:db";
-
 const { userId } = Astro.locals.auth();
 if (!userId) {
     return Astro.redirect("/auth/login");

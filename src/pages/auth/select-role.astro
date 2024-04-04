@@ -23,12 +23,12 @@ if (Astro.request.method === "POST") {
     const data = await Astro.request.formData();
     const roleInput = data.get("role");
 
-    if (roleInput == "Event Organizer") {
-        const name = cureentUser.firstName + cureentUser.lastName;
-        const email = cureentUser.emailAddresses[0].emailAddress;
-        const idRole = 1;
-        const password = null;
+    const name = cureentUser.firstName + cureentUser.lastName;
+    const email = cureentUser.emailAddresses[0].emailAddress;
+    const password = null;
 
+    if (roleInput === "Event Organizer") {
+        const idRole = 1;
         await db.insert(User).values({
             email: email,
             idRole: idRole,
@@ -38,12 +38,10 @@ if (Astro.request.method === "POST") {
         });
 
         return Astro.redirect("/");
-    } else if (roleInput == "Sponsor") {
-        const name = cureentUser.firstName + cureentUser.lastName;
-        const email = cureentUser.emailAddresses.toString();
+    }
+    
+    if (roleInput === "Sponsor") {
         const idRole = 2;
-        const password = null;
-
         await db.insert(User).values({
             email: email,
             idRole: idRole,

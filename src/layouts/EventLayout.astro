@@ -1,8 +1,8 @@
 ---
 const { title } = Astro.props;
 import "@/styles/globals.css";
-
 import { DashboardLayout } from "../blocks/dashboardLayout";
+import { UserButton } from "astro-clerk-auth/components/interactive";
 ---
 
 <html lang="en">
@@ -12,6 +12,9 @@ import { DashboardLayout } from "../blocks/dashboardLayout";
         <title>{title} - Sponsorify</title>
     </head>
     <body>
-        <DashboardLayout> <slot /></DashboardLayout>
+        <DashboardLayout client:load>
+            <div slot="user-button"><UserButton /></div>
+            <div slot="main"><slot /></div>
+        </DashboardLayout>
     </body>
 </html>

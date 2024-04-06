@@ -1,7 +1,7 @@
 ---
 import EventLayout from "@/layouts/EventLayout.astro";
 
-if (Astro.request.method == "POST") {
+if (Astro.request.method === "POST") {
     const data = await Astro.request.formData();
     const search = data.get("search");
     console.log(search);
@@ -9,4 +9,7 @@ if (Astro.request.method == "POST") {
 ---
 
 <EventLayout title="Dashboard">
+    <div class="flex justify-center items-center h-[80vh]">
+        <h1>Hello World</h1>
+    </div>
 </EventLayout>

@@ -5,7 +5,7 @@ import { SignUp } from "astro-clerk-auth/components/interactive";
 
 <AuthLayout title="Register">
     <SignUp
-        afterSignInUrl="/"
+        afterSignInUrl="/auth/select-role"
         signInUrl="/auth/login"
         afterSignUpUrl="/auth/select-role"
         routing="hash"

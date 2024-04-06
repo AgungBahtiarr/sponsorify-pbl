@@ -8,9 +8,10 @@ import { SignIn } from "astro-clerk-auth/components/interactive";
     <SignedOut>
         <SignIn
             routing="hash"
-            afterSignInUrl="/"
+            afterSignInUrl="/auth/select-role"
             afterSignOutUrl="/auth/login"
             signUpUrl="/auth/register"
+            afterSignUpUrl="/auth/select-role"
         />
     </SignedOut>
 </AuthLayout>

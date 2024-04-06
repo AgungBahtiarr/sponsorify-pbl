@@ -1,10 +1,10 @@
 ---
 import EventLayout from "@/layouts/EventLayout.astro";
 
-if (Astro.request.method === "POST") {
-    const data = await Astro.request.formData();
-    const search = data.get("search");
-    console.log(search);
+const currentUser = await Astro.locals.currentUser();
+
+if (!currentUser) {
+    return Astro.redirect("/auth/login");
 }
 ---
 

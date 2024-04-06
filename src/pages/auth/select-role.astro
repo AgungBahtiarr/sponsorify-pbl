@@ -15,8 +15,12 @@ const checkEmail = await db
     .from(User)
     .where(eq(User.email, cureentUser.emailAddresses[0].emailAddress));
 
-if (checkEmail[0]) {
-    return Astro.redirect("/");
+if (checkEmail[0] && checkEmail[0].idRole === 1) {
+    return Astro.redirect("/event/dashboard");
+}
+
+if (checkEmail[0] && checkEmail[0].idRole === 2) {
+    return Astro.redirect("/sponsor/dashboard");
 }
 
 if (Astro.request.method === "POST") {
@@ -37,9 +41,9 @@ if (Astro.request.method === "POST") {
             id: null,
         });
 
-        return Astro.redirect("/");
+        return Astro.redirect("/event/dashboard");
     }
-    
+
     if (roleInput === "Sponsor") {
         const idRole = 2;
         await db.insert(User).values({
@@ -49,7 +53,7 @@ if (Astro.request.method === "POST") {
             password: password,
             id: null,
         });
-        return Astro.redirect("/");
+        return Astro.redirect("/sponsor/dashboard");
     }
 }
 ---

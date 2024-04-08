@@ -1,12 +1,45 @@
 ---
 import EventLayout from "@/layouts/EventLayout.astro";
 import EventTable from "@/components/eventtable";
+import EventForm from "@/components/eventform";
+import { db, Events, Users, eq } from "astro:db";
 
-const rowList = [1, 2, 3, 4,5,6];
+const oauthUser = await Astro.locals.currentUser();
+const authUser = await db
+  .select()
+  .from(Users)
+  .where(eq(Users.email, oauthUser.emailAddresses[0].emailAddress));
+
+if (Astro.request.method === "POST") {
+  const formData = await Astro.request.formData();
+  const name = formData.get("name");
+  const description = formData.get("description");
+  const rawDate = formData.get("startDate");
+  const startDate = new Date(rawDate.toString());
+  const proposal = formData.get("proposal");
+  const location = formData.get("location");
+
+  await db.insert(Events).values({
+    id: null,
+    name: name.toString(),
+    description: description.toString(),
+    location: location.toString(),
+    startDate: startDate,
+    proposal: proposal.toString(),
+    idUser: authUser[0].id,
+  });
+
+  return Astro.redirect("/event/myevent");
+}
+const events = await db.select().from(Events);
 ---
 
 <EventLayout title="My Events">
-    <div class="mt-6">
-        <EventTable client:only="react" eventList={rowList} />
-    </div>
+  <div class="mt-6">
+    <EventTable client:only="react" eventList={events}>
+      <div slot="eventForm">
+        <EventForm client:load />
+      </div>
+    </EventTable>
+  </div>
 </EventLayout>

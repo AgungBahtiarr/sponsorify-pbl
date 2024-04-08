@@ -23,7 +23,6 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
-import EventForm from "@/components/eventform";
 
 export default function EventTable(props) {
     const eventList = props.eventList;
@@ -39,7 +38,7 @@ export default function EventTable(props) {
                         </CardDescription>
                     </div>
                     <div>
-                        <EventForm />
+                        {props.eventForm}
                     </div>
                 </div>
 
@@ -59,19 +58,19 @@ export default function EventTable(props) {
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        {eventList.map((item) => {
+                        {eventList.map((event) => {
                             return (
-                                <TableRow key={item}>
+                                <TableRow key={event.id}>
                                     <TableCell className="font-medium">
-                                        Semarak kemerdekaan
+                                        {event.name}
                                     </TableCell>
                                     <TableCell>
-                                        <p className="truncate ... w-52 ">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis, obcaecati aliquam? Aspernatur ratione adipisci rem ipsum dolores accusamus eius explicabo tenetur corrupti harum totam, iusto non aperiam similique esse sed!</p>
+                                        <p className="truncate ... w-52 ">{event.description}</p>
                                     </TableCell>
-                                    <TableCell>05-02-2024</TableCell>
+                                    <TableCell>{event.startDate.toDateString()}</TableCell>
                                     {/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}
-                                    <TableCell><a href="#">Download</a></TableCell>
-                                    <TableCell>Location</TableCell>
+                                    <TableCell><a href="#">{event.proposal}</a></TableCell>
+                                    <TableCell>{event.location}</TableCell>
                                     <TableCell>
                                         <DropdownMenu>
                                             <DropdownMenuTrigger asChild>
@@ -90,7 +89,6 @@ export default function EventTable(props) {
                                 </TableRow>
                             )
                         })}
-
                     </TableBody>
                 </Table>
             </CardContent>

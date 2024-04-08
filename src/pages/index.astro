@@ -6,7 +6,6 @@ import { db, Roles } from "astro:db";
 
 const role = await db.select().from(Roles);
 const userDb = await db.select().from(Users);
-console.log(userDb);
 // console.log(role);
 
 const user = await Astro.locals.currentUser();

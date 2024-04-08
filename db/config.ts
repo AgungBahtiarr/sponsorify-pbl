@@ -22,7 +22,7 @@ const Events = defineTable({
   columns: {
     id: column.number({ primaryKey: true }),
     name: column.text(),
-    descriptin: column.text(),
+    description: column.text(),
     location: column.text(),
     proposal: column.text(),
     startDate: column.date(),

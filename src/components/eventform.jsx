@@ -19,8 +19,9 @@ export default function EventForm() {
             <DialogTrigger asChild>
                 <Button variant="outline">Tambah event</Button>
             </DialogTrigger>
-            <form action="POST">
-                <DialogContent className="sm:max-w-[425px]">
+
+            <DialogContent className="sm:max-w-[425px]">
+                <form action="" method="POST">
                     <DialogHeader>
                         <DialogTitle>Tambah event</DialogTitle>
                         <DialogDescription>
@@ -35,10 +36,10 @@ export default function EventForm() {
                             <Input id="name" name="name" placeholder="Nama event.." className="col-span-3" />
                         </div>
                         <div className="grid grid-cols-4 items-center gap-4">
-                            <Label htmlFor="deskripsi" className="text-right">
+                            <Label htmlFor="description" className="text-right">
                                 Deskripsi event
                             </Label>
-                            <Textarea id="deskripsi" placeholder="Deskripsi event..." name="deskripsi" className="col-span-3" />
+                            <Textarea id="description" placeholder="Deskripsi event..." name="description" className="col-span-3" />
                         </div>
                         <div className="grid grid-cols-4 items-center gap-4">
                             <Label htmlFor="startDate" className="text-right">
@@ -62,8 +63,8 @@ export default function EventForm() {
                     <DialogFooter>
                         <Button type="submit">Save changes</Button>
                     </DialogFooter>
-                </DialogContent>
-            </form>
+                </form>
+            </DialogContent>
         </Dialog>
     )
 }

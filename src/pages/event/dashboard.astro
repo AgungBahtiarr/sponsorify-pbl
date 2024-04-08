@@ -1,15 +1,20 @@
 ---
 import EventLayout from "@/layouts/EventLayout.astro";
+import { db, User, eq } from "astro:db";
 
 const currentUser = await Astro.locals.currentUser();
 
+const user = await db
+    .select()
+    .from(User)
+    .where(eq(User.email, currentUser.emailAddresses[0].emailAddress));
 if (!currentUser) {
     return Astro.redirect("/auth/login");
 }
 ---
 
 <EventLayout title="Dashboard">
-    <div class="flex justify-center items-center h-[80vh]">
-        <h1>Hello World</h1>
+    <div class="flex justify-center items-center h-[85vh]">
+        Hello {user[0].name}
     </div>
 </EventLayout>

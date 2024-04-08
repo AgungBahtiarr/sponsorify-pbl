@@ -5,7 +5,7 @@ import { DashboardLayout } from "../blocks/dashboardLayout";
 import { UserButton } from "astro-clerk-auth/components/interactive";
 ---
 
-<html lang="en">
+<html lang="en" class="dark">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,7 +14,7 @@ import { UserButton } from "astro-clerk-auth/components/interactive";
     <body>
         <DashboardLayout client:load>
             <div slot="user-button"><UserButton /></div>
-            <div slot="main"><slot /></div>
+            <div slot="main" class="h-full"><slot /></div>
         </DashboardLayout>
     </body>
 </html>

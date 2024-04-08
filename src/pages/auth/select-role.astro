@@ -2,13 +2,14 @@
 import { eq } from "astro:db";
 import AuthLayout from "../../layouts/AuthLayout.astro";
 import { db, Role, User } from "astro:db";
+import { RoleForm } from "@/components/roleform";
+
 const { userId } = Astro.locals.auth();
 if (!userId) {
     return Astro.redirect("/auth/login");
 }
 
 const cureentUser = await Astro.locals.currentUser();
-const roles = await db.select().from(Role);
 
 const checkEmail = await db
     .select()
@@ -59,25 +60,5 @@ if (Astro.request.method === "POST") {
 ---
 
 <AuthLayout title="Select Role">
-    <div class="card w-96 bg-base-100 shadow-xl">
-        <div class="card-body">
-            <h2 class="card-title flex justify-center mb-4">Select Role</h2>
-            <form method="post">
-                <select
-                    class="select select-bordered w-full max-w-xs"
-                    name="role"
-                >
-                    <option disabled selected>Select Role</option>
-                    {
-                        roles.map((role) => {
-                            return <option>{role.role}</option>;
-                        })
-                    }
-                </select>
-                <div class="card-actions justify-end mt-4">
-                    <button class="btn btn-primary">Submit</button>
-                </div>
-            </form>
-        </div>
-    </div>
+    <div><RoleForm client:load /></div>
 </AuthLayout>

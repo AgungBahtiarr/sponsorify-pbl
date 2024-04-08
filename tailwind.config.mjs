@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   darkMode: ["class"],
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   prefix: "",
@@ -68,5 +68,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"),require("daisyui")],
+  plugins: [require("tailwindcss-animate"),],
 }

@@ -1,0 +1,12 @@
+---
+import EventLayout from "@/layouts/EventLayout.astro";
+import EventTable from "@/components/eventtable";
+
+const rowList = [1, 2, 3, 4,5,6];
+---
+
+<EventLayout title="My Events">
+    <div class="mt-6">
+        <EventTable client:only="react" eventList={rowList} />
+    </div>
+</EventLayout>

@@ -12,10 +12,9 @@ export function DashboardLayout(props) {
   return (
     <div className="flex min-h-screen w-full flex-col">
       <header className="sticky top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
-        <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
+        <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-8 md:w-full">
           <a
-            // biome-ignore lint/a11y/useValidAnchor: <explanation>
-            href="#"
+            href="/event/dashboard"
             className="flex items-center gap-2 text-lg font-semibold md:text-base"
           >
             <div className="logo flex gap-2 items-center">
@@ -26,9 +25,8 @@ export function DashboardLayout(props) {
             <span className="sr-only">Sponsorify</span>
           </a>
           <a
-            // biome-ignore lint/a11y/useValidAnchor: <explanation>
-            href="#"
-            className="text-foreground transition-colors hover:text-foreground"
+            href="/event/dashboard"
+            className="text-muted-foreground transition-colors hover:text-foreground"
           >
             Dashboard
           </a>
@@ -40,11 +38,10 @@ export function DashboardLayout(props) {
             Sponsors
           </a>
           <a
-            // biome-ignore lint/a11y/useValidAnchor: <explanation>
-            href="#"
+            href="/event/myevent"
             className="text-muted-foreground transition-colors hover:text-foreground"
           >
-            Event
+            My Events
           </a>
         </nav>
         <Sheet>
@@ -71,8 +68,8 @@ export function DashboardLayout(props) {
                 </div>
 
               </a>
-              <a // biome-ignore lint/a11y/useValidAnchor: <explanation>
-                href="#" className="hover:text-foreground">
+              <a
+                href="/event/dashboard" className="hover:text-foreground">
                 Dashboard
               </a>
               <a
@@ -83,11 +80,10 @@ export function DashboardLayout(props) {
                 Sponsors
               </a>
               <a
-                // biome-ignore lint/a11y/useValidAnchor: <explanation>
-                href="#"
+                href="/event/myevent"
                 className="text-muted-foreground hover:text-foreground"
               >
-                Event
+                My Events
               </a>
             </nav>
           </SheetContent>

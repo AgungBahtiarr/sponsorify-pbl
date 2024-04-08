@@ -1,7 +1,7 @@
 ---
 import { eq } from "astro:db";
 import AuthLayout from "../../layouts/AuthLayout.astro";
-import { db, Role, User } from "astro:db";
+import { db, Roles, Users } from "astro:db";
 import { RoleForm } from "@/components/roleform";
 
 const { userId } = Astro.locals.auth();
@@ -13,8 +13,8 @@ const cureentUser = await Astro.locals.currentUser();
 
 const checkEmail = await db
     .select()
-    .from(User)
-    .where(eq(User.email, cureentUser.emailAddresses[0].emailAddress));
+    .from(Users)
+    .where(eq(Users.email, cureentUser.emailAddresses[0].emailAddress));
 
 if (checkEmail[0] && checkEmail[0].idRole === 1) {
     return Astro.redirect("/event/dashboard");
@@ -34,7 +34,7 @@ if (Astro.request.method === "POST") {
 
     if (roleInput === "Event Organizer") {
         const idRole = 1;
-        await db.insert(User).values({
+        await db.insert(Users).values({
             email: email,
             idRole: idRole,
             name: name,
@@ -47,7 +47,7 @@ if (Astro.request.method === "POST") {
 
     if (roleInput === "Sponsor") {
         const idRole = 2;
-        await db.insert(User).values({
+        await db.insert(Users).values({
             email: email,
             idRole: idRole,
             name: name,

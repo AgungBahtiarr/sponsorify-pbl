@@ -5,7 +5,6 @@ import {
     Card,
     CardContent,
     CardDescription,
-    CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
@@ -52,6 +51,8 @@ export default function EventTable(props) {
                             <TableHead>Nama Event</TableHead>
                             <TableHead>Deskripsi</TableHead>
                             <TableHead>Tanggal Mulai</TableHead>
+                            <TableHead>Proposal</TableHead>
+                            <TableHead>Location</TableHead>
                             <TableHead>
                                 <span>Actions</span>
                             </TableHead>
@@ -68,6 +69,9 @@ export default function EventTable(props) {
                                         <p className="truncate ... w-52 ">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis, obcaecati aliquam? Aspernatur ratione adipisci rem ipsum dolores accusamus eius explicabo tenetur corrupti harum totam, iusto non aperiam similique esse sed!</p>
                                     </TableCell>
                                     <TableCell>05-02-2024</TableCell>
+                                    {/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}
+                                    <TableCell><a href="#">Download</a></TableCell>
+                                    <TableCell>Location</TableCell>
                                     <TableCell>
                                         <DropdownMenu>
                                             <DropdownMenuTrigger asChild>
@@ -90,11 +94,6 @@ export default function EventTable(props) {
                     </TableBody>
                 </Table>
             </CardContent>
-            <CardFooter>
-                <div className="text-xs text-muted-foreground">
-                    Showing <strong>1-10</strong> of <strong>32</strong> products
-                </div>
-            </CardFooter>
         </Card>
     )
 }

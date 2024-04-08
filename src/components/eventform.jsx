@@ -1,3 +1,4 @@
+import React from "react"
 import { Button } from "@/components/ui/button"
 import {
     Dialog,
@@ -31,7 +32,7 @@ export default function EventForm() {
                             <Label htmlFor="name" className="text-right">
                                 Nama event
                             </Label>
-                            <Input id="name" placeholder="Nama event.." className="col-span-3" />
+                            <Input id="name" name="name" placeholder="Nama event.." className="col-span-3" />
                         </div>
                         <div className="grid grid-cols-4 items-center gap-4">
                             <Label htmlFor="deskripsi" className="text-right">
@@ -40,10 +41,22 @@ export default function EventForm() {
                             <Textarea id="deskripsi" placeholder="Deskripsi event..." name="deskripsi" className="col-span-3" />
                         </div>
                         <div className="grid grid-cols-4 items-center gap-4">
-                            <Label htmlFor="date" className="text-right">
+                            <Label htmlFor="startDate" className="text-right">
                                 Tanggal mulai
                             </Label>
-                            <Input id="date" type="date" className="col-span-3" />
+                            <Input id="startDate" type="date" name="startDate" className="col-span-3" />
+                        </div>
+                        <div className="grid grid-cols-4 items-center gap-4">
+                            <Label htmlFor="location" className="text-right">
+                                Lokasi
+                            </Label>
+                            <Input id="location" name="location" className="col-span-3" />
+                        </div>
+                        <div className="grid grid-cols-4 items-center gap-4">
+                            <Label htmlFor="proposal" className="text-right">
+                                Proposal
+                            </Label>
+                            <Input id="proposal" type="file" name="proposal" className="col-span-3" />
                         </div>
                     </div>
                     <DialogFooter>

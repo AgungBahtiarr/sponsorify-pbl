@@ -1,13 +1,13 @@
 ---
 import EventLayout from "@/layouts/EventLayout.astro";
-import { db, User, eq } from "astro:db";
+import { db, Users, eq } from "astro:db";
 
 const currentUser = await Astro.locals.currentUser();
 
 const user = await db
     .select()
-    .from(User)
-    .where(eq(User.email, currentUser.emailAddresses[0].emailAddress));
+    .from(Users)
+    .where(eq(Users.email, currentUser.emailAddresses[0].emailAddress));
 if (!currentUser) {
     return Astro.redirect("/auth/login");
 }

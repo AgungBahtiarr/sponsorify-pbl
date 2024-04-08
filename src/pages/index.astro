@@ -1,11 +1,11 @@
 ---
 import { SignedIn } from "astro-clerk-auth/components/control";
 import { UserButton } from "astro-clerk-auth/components/interactive";
-import { User } from "astro:db";
-import { db, Role } from "astro:db";
+import { Users } from "astro:db";
+import { db, Roles } from "astro:db";
 
-const role = await db.select().from(Role);
-const userDb = await db.select().from(User);
+const role = await db.select().from(Roles);
+const userDb = await db.select().from(Users);
 console.log(userDb);
 // console.log(role);
 

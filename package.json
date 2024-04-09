@@ -46,6 +46,7 @@
     "@radix-ui/react-tooltip": "^1.0.7",
     "@types/react": "^18.2.74",
     "@types/react-dom": "^18.2.23",
+    "@uploadthing/react": "^6.4.1",
     "astro": "^4.5.12",
     "astro-clerk-auth": "^0.1.2",
     "class-variance-authority": "^0.7.0",
@@ -66,6 +67,7 @@
     "tailwind-merge": "^2.2.2",
     "tailwindcss": "^3.4.3",
     "tailwindcss-animate": "^1.0.7",
+    "uploadthing": "^6.7.0",
     "vaul": "^0.9.0",
     "zod": "^3.22.4"
   },

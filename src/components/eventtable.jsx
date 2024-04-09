@@ -68,8 +68,7 @@ export default function EventTable(props) {
                                         <p className="truncate ... w-52 ">{event.description}</p>
                                     </TableCell>
                                     <TableCell>{event.startDate.toDateString()}</TableCell>
-                                    {/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}
-                                    <TableCell><a href="#">{event.proposal}</a></TableCell>
+                                    <TableCell><a href={event.proposal}>Download</a></TableCell>
                                     <TableCell>{event.location}</TableCell>
                                     <TableCell>
                                         <DropdownMenu>

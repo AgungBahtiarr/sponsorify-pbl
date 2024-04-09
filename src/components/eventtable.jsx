@@ -80,8 +80,13 @@ export default function EventTable(props) {
                                             </DropdownMenuTrigger>
                                             <DropdownMenuContent align="end">
                                                 <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                                                <DropdownMenuItem>Edit</DropdownMenuItem>
-                                                <DropdownMenuItem>Delete</DropdownMenuItem>
+                                                <DropdownMenuItem>
+                                                    <form method="POST">
+                                                        <input type="hidden" name="id" value={event.id} />
+                                                        <input type="hideen" name="method" value="delete" />
+                                                        <Button>Delete</Button>
+                                                    </form>
+                                                </DropdownMenuItem>
                                             </DropdownMenuContent>
                                         </DropdownMenu>
                                     </TableCell>

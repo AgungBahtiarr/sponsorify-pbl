@@ -74,6 +74,7 @@ export default function EventForm(props) {
                         </div>
 
                         <Input id="proposal" type="hidden" value={url} name="proposal" className="col-span-3" />
+                        <input type="hidden" name="method" value="add" />
                     </div>
                     <DialogFooter>
                         {ready ? <Button type="submit">Submit</Button> : <Button disabled type="submit">Loading...</Button>}

@@ -4,7 +4,7 @@ import EventTable from "@/components/eventtable";
 import EventForm from "@/components/eventform";
 import { db, Events, Users, eq } from "astro:db";
 import NoEvent from "@/components/noevent";
-import { number } from "zod";
+
 
 const oauthUser = await Astro.locals.currentUser();
 const authUser = await db

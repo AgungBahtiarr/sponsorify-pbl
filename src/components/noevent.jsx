@@ -11,7 +11,9 @@ export default function NoEvent() {
             <p className="text-sm text-muted-foreground">
                 Kamu bisa mulai mendapatkan sponsor setelah menambahkan event mu
             </p>
-            <EventForm />
+            <div className="my-4">
+                <EventForm />
+            </div>
         </div>
     )
 }

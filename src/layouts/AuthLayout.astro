@@ -4,16 +4,17 @@ import { ClerkLayout } from "astro-clerk-auth/components/control";
 import "@/styles/globals.css";
 ---
 
-<!doctype html>
-<html lang="en" class="dark">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>{title} - Sponsorify</title>
-    </head>
-    <body>
-        <div class="flex justify-center items-center h-screen">
-            <ClerkLayout><slot /></ClerkLayout>
-        </div>
-    </body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} - Sponsorify</title>
+    <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="flex justify-center items-center h-screen">
+      <ClerkLayout><slot /></ClerkLayout>
+    </div>
+  </body>
 </html>

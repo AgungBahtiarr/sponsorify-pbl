@@ -3,18 +3,23 @@ const { title } = Astro.props;
 import "@/styles/globals.css";
 import { DashboardLayout } from "../blocks/dashboardLayout";
 import { UserButton } from "astro-clerk-auth/components/interactive";
+
+const url = Astro.url.pathname;
+const urlValue = url.split("/");
 ---
 
-<html lang="en" class="light">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>{title} - Sponsorify</title>
-    </head>
-    <body>
-        <DashboardLayout client:load>
-            <div slot="user-button"><UserButton /></div>
-            <div slot="main" class="h-full"><slot /></div>
-        </DashboardLayout>
-    </body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" href="/favicon.svg" type="image/x-icon" />
+    <title>{title} - Sponsorify</title>
+  </head>
+  <body>
+    <DashboardLayout client:load url={urlValue[2]}>
+      <div slot="user-button"><UserButton /></div>
+      <div slot="main" class="h-full"><slot /></div>
+    </DashboardLayout>
+  </body>
 </html>

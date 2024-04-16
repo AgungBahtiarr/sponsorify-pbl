@@ -9,9 +9,10 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { CardLayout } from "@/components/CardLayout";
 
 export function DashboardLayout(props) {
+  const url = props.url;
   return (
     <div className="flex min-h-screen w-full flex-col">
-      <header className="sticky top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
+      <header className="sticky z-10 top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
         <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-8 md:w-full">
           <a
             href="/event/dashboard"
@@ -26,20 +27,20 @@ export function DashboardLayout(props) {
           </a>
           <a
             href="/event/dashboard"
-            className="text-muted-foreground transition-colors hover:text-foreground"
+            className={`transition-colors hover:text-foreground ${'dashboard' === url ? "border-b-2 border-black dark:border-white" : "text-muted-foreground"}`}
           >
             Dashboard
           </a>
           <a
-            // biome-ignore lint/a11y/useValidAnchor: <explanation>
-            href="#"
-            className="text-muted-foreground transition-colors hover:text-foreground"
+            href="/event/sponsor"
+            className={`transition-colors hover:text-foreground ${'sponsor' === url ? "border-b-2 border-black dark:border-white" : "text-muted-foreground"}`}
+
           >
             Sponsors
           </a>
           <a
             href="/event/myevent"
-            className="text-muted-foreground transition-colors hover:text-foreground"
+            className={`transition-colors hover:text-foreground ${url === 'myevent' ? "border-b-2 border-black dark:border-white" : "text-muted-foreground"}`}
           >
             My Events
           </a>
@@ -58,23 +59,20 @@ export function DashboardLayout(props) {
           <SheetContent side="left">
             <nav className="grid gap-6 text-lg font-medium">
               <a
-                // biome-ignore lint/a11y/useValidAnchor: <explanation>
-                href="#"
+                href="/event/dashboard"
                 className="flex items-center gap-2 text-lg font-semibold"
               >
                 <div className="logo flex gap-2 items-center">
                   <Package2 className="h-6 w-6" />
                   <span className="">Sponsorify</span>
                 </div>
-
               </a>
               <a
-                href="/event/dashboard" className="hover:text-foreground">
+                href="/event/dashboard" className="text-muted-foreground hover:text-foreground">
                 Dashboard
               </a>
               <a
-                // biome-ignore lint/a11y/useValidAnchor: <explanation>
-                href="#"
+                href="/event/sponsor"
                 className="text-muted-foreground hover:text-foreground"
               >
                 Sponsors

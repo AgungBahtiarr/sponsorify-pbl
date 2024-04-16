@@ -5,10 +5,10 @@ import {
 
 export function CardLayout(props) {
     return (
-        <Card className="w-full">
-            <CardContent>
-                {props.children}
-            </CardContent>
-        </Card>
+            <Card className="w-full">
+                <CardContent>
+                    {props.children}
+                </CardContent>
+            </Card>
     )
 }

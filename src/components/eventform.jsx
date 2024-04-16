@@ -20,7 +20,7 @@ export default function EventForm(props) {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <Button variant="outline">Tambah event</Button>
+                <Button>Tambah event</Button>
             </DialogTrigger>
 
             <DialogContent className="sm:max-w-[425px]">

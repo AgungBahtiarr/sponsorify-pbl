@@ -30,7 +30,30 @@ const Events = defineTable({
   }
 })
 
+const Categories = defineTable({
+  columns: {
+    id: column.number({ primaryKey: true }),
+    category: column.text()
+  }
+})
+
+
+const Sponsor = defineTable({
+  columns: {
+    id: column.number({ primaryKey: true }),
+    name: column.text(),
+    email: column.text(),
+    description: column.text(),
+    address: column.text(),
+    maxSubmissionDate: column.date(),
+    image: column.text(),
+    idCategory: column.number({ references: () => Categories.columns.id }),
+    idUser: column.number({ references: () => Users.columns.id }),
+  }
+});
+
+
 // https://astro.build/db/config
 export default defineDb({
-  tables: { Users, Roles, Events }
+  tables: { Users, Roles, Events, Categories, Sponsor }
 });

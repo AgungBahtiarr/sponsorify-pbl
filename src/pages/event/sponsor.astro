@@ -2,8 +2,12 @@
 import EventLayout from "@/layouts/EventLayout.astro";
 import CardSponsor from "@/components/cardsponsor";
 import CategoryList from "@/components/categorylist";
+import { db, Categories, Sponsor, eq } from "astro:db";
 
-const sponsorList = [1, 2, 3, 4, 5, 5, 7, 7, 8, 9, 9, 1, 94, 3];
+const sponsorList = await db
+  .select()
+  .from(Sponsor)
+  .leftJoin(Categories, eq(Sponsor.id, Categories.id));
 ---
 
 <EventLayout title="Sponsor">
@@ -18,10 +22,16 @@ const sponsorList = [1, 2, 3, 4, 5, 5, 7, 7, 8, 9, 9, 1, 94, 3];
     class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
   >
     {
-      sponsorList.map(() => {
+      sponsorList.map((item) => {
+        console.log(item.Sponsor.description);
         return (
           <div class="flex justify-center">
-            <CardSponsor />
+            <CardSponsor 
+              name={item.Sponsor.name}, 
+              category={item.Categories.category}, 
+              description = {item.Sponsor.description}, 
+              image={item.Sponsor.image}  
+            />
           </div>
         );
       })

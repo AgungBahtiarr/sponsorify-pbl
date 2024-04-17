@@ -5,7 +5,6 @@ import EventForm from "@/components/eventform";
 import { db, Events, Users, eq } from "astro:db";
 import NoEvent from "@/components/noevent";
 
-
 const oauthUser = await Astro.locals.currentUser();
 const authUser = await db
   .select()
@@ -45,6 +44,8 @@ if (Astro.request.method === "POST") {
 }
 
 const events = await db.select().from(Events);
+
+console.log(events);
 ---
 
 <EventLayout title="My Events">

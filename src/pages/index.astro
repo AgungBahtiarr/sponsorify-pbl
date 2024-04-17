@@ -1,14 +1,9 @@
 ---
-import { SignedIn } from "astro-clerk-auth/components/control";
-import { UserButton } from "astro-clerk-auth/components/interactive";
-import { Users } from "astro:db";
-import { db, Roles } from "astro:db";
+// const role = await db.select().from(Roles);
+// const userDb = await db.select().from(Users);
+// // console.log(role);
 
-const role = await db.select().from(Roles);
-const userDb = await db.select().from(Users);
-// console.log(role);
-
-const user = await Astro.locals.currentUser();
+// const user = await Astro.locals.currentUser();
 // console.log(user);
 
 const { userId } = Astro.locals.auth();
@@ -27,8 +22,6 @@ if (!userId) {
 		<title>Astro</title>
 	</head>
 	<body>
-		<SignedIn>
-			<UserButton afterSignOutUrl="/auth/login" />
-		</SignedIn>
+
 	</body>
 </html>

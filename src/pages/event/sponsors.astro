@@ -3,7 +3,7 @@ import EventLayout from "@/layouts/EventLayout.astro";
 import CardSponsor from "@/components/cardsponsor";
 import CategoryList from "@/components/categorylist";
 import { db, Categories, Sponsor, eq } from "astro:db";
-
+  
 const sponsorList = await db
   .select()
   .from(Sponsor)
@@ -27,7 +27,7 @@ const sponsorList = await db
         return (
           <div class="flex justify-center">
             <CardSponsor 
-              name={item.Sponsor.name}, 
+              name={item.Sponsor.name},
               category={item.Categories.category}, 
               description = {item.Sponsor.description}, 
               image={item.Sponsor.image}  

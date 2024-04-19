@@ -64,6 +64,7 @@ export default function EventForm(props) {
                                 className="border-2 rounded-md px-6 pb-3 col-span-3"
                                 endpoint="fileUploader"
                                 onClientUploadComplete={(res) => {
+                                    console.log(res);
                                     setReady(true);
                                     setUrl(res[0].url);
                                 }}

@@ -59,6 +59,7 @@ export default function EventTable(props) {
                     </TableHeader>
                     <TableBody>
                         {eventList.map((event) => {
+                            console.log(event.proposal);
                             return (
                                 <TableRow key={event.id}>
                                     <TableCell className="font-medium">
@@ -83,6 +84,7 @@ export default function EventTable(props) {
                                                 <DropdownMenuItem>
                                                     <form method="POST">
                                                         <input type="hidden" name="id" value={event.id} />
+                                                        <input type="hidden" name="key" value={event.proposal} />
                                                         <input type="hideen" name="method" value="delete" />
                                                         <Button>Delete</Button>
                                                     </form>

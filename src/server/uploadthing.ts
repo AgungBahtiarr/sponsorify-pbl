@@ -1,6 +1,8 @@
-import { createUploadthing, type FileRouter } from "uploadthing/server";
+import { createUploadthing, type FileRouter, UTApi } from "uploadthing/server";
 
 const f = createUploadthing();
+
+export const utapi = new UTApi({apiKey: import.meta.env.UPLOADTHING_SECRET});
 
 const auth = (req: Request) => ({ id: "fakeId" }); // Fake auth function
 

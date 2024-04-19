@@ -5,6 +5,8 @@ import EventForm from "@/components/eventform";
 import { db, Events, Users, eq } from "astro:db";
 import NoEvent from "@/components/noevent";
 
+import { utapi } from "@/server/uploadthing";
+
 const oauthUser = await Astro.locals.currentUser();
 const authUser = await db
   .select()
@@ -38,14 +40,16 @@ if (Astro.request.method === "POST") {
 
   if (method === "delete") {
     const idEvent = formData.get("id");
-
+    const key = formData.get("key");
+    const fileName = key.toString().split("/");
+    await utapi.deleteFiles(fileName[4]);
     await db.delete(Events).where(eq(Events.id, idEvent as unknown as number));
   }
 }
 
 const events = await db.select().from(Events);
 
-console.log(events);
+// console.log(events);
 ---
 
 <EventLayout title="My Events">

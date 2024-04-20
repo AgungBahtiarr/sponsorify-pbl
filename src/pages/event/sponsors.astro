@@ -3,11 +3,28 @@ import EventLayout from "@/layouts/EventLayout.astro";
 import CardSponsor from "@/components/cardsponsor";
 import CategoryList from "@/components/categorylist";
 import { db, Categories, Sponsor, eq } from "astro:db";
-  
-const sponsorList = await db
+
+let category = ""
+
+let sponsorList = await db
   .select()
   .from(Sponsor)
   .leftJoin(Categories, eq(Sponsor.id, Categories.id));
+
+if (Astro.request.method === "POST") {
+  const formData = await Astro.request.formData();
+  category = formData.get("category").toString();
+
+  sponsorList = await db
+  .select()
+  .from(Sponsor)
+  .leftJoin(Categories, eq(Sponsor.id, Categories.id)).where(eq(Categories.category, category));
+
+}
+
+const categoryList = await db.select().from(Categories);
+  
+
 ---
 
 <EventLayout title="Sponsor">
@@ -16,25 +33,22 @@ const sponsorList = await db
     <p>Temukan sponsor pilihanmu</p>
   </div>
   <div class="mb-10">
-    <CategoryList />
+    <CategoryList client:load categoryList={categoryList} current={category} />
   </div>
   <div
     class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
   >
-    {
-      sponsorList.map((item) => {
-        console.log(item.Sponsor.description);
-        return (
-          <div class="flex justify-center">
-            <CardSponsor 
-              name={item.Sponsor.name},
-              category={item.Categories.category}, 
-              description = {item.Sponsor.description}, 
-              image={item.Sponsor.image}  
-            />
-          </div>
-        );
-      })
-    }
+  {sponsorList.map((item) => {
+    return (
+      <div class="flex justify-center">
+        <CardSponsor 
+          name={item.Sponsor.name},
+          category={item.Categories.category}, 
+          description = {item.Sponsor.description}, 
+          image={item.Sponsor.image}  
+        />
+      </div>
+    );
+  })}
   </div>
 </EventLayout>

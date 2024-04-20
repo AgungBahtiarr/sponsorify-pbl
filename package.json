@@ -1,14 +1,6 @@
 {
   "name": "",
-  "type": "module",
   "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
   "dependencies": {
     "@astrojs/db": "^0.9.8",
     "@astrojs/netlify": "^5.2.0",
@@ -71,7 +63,12 @@
     "vaul": "^0.9.0",
     "zod": "^3.22.4"
   },
-  "devDependencies": {
-    "daisyui": "latest"
-  }
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "type": "module"
 }

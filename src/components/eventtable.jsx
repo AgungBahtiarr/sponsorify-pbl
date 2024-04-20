@@ -26,7 +26,6 @@ import {
 
 export default function EventTable(props) {
     const eventList = props.eventList;
-    console.log(eventList)
     return (
         <Card>
             <CardHeader>

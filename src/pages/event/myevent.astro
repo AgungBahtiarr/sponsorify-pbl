@@ -62,7 +62,7 @@ const events = await db.select().from(Events);
       </div>
     ) : (
       <div class="mt-6">
-        <EventTable client:only="react" eventList={events}>
+        <EventTable client:load eventList={events}>
           <div slot="eventForm">
             <EventForm client:load />
           </div>

@@ -24,7 +24,7 @@ export default function EventForm(props) {
             </DialogTrigger>
 
             <DialogContent className="sm:max-w-[425px]">
-                <form action="" method="POST">
+                <form method="POST">
                     <DialogHeader>
                         <DialogTitle>Tambah event</DialogTitle>
                         <DialogDescription>

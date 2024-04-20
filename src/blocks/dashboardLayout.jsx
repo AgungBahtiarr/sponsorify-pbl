@@ -15,39 +15,36 @@ export function DashboardLayout(props) {
 						className="flex items-center gap-2 text-lg font-semibold md:text-base"
 					>
 						<div className="logo flex gap-2 items-center">
-							<Package2 className="h-6 w-6" />
-							<h1>Sponsorify</h1>
+							<img src="/logo.png" alt="Sponsorify" className="h-7 w-7" />
+							<h1 className="font-semibold">Sponsorify</h1>
 						</div>
 
 						<span className="sr-only">Sponsorify</span>
 					</a>
 					<a
 						href="/event/dashboard"
-						className={`transition-colors hover:text-foreground ${
-							"dashboard" === url
-								? "border-b-2 border-black dark:border-white"
-								: "text-muted-foreground"
-						}`}
+						className={`transition-colors hover:text-foreground ${"dashboard" === url
+							? "border-b-2 border-black dark:border-white"
+							: "text-muted-foreground"
+							}`}
 					>
 						Dashboard
 					</a>
 					<a
 						href="/event/sponsors"
-						className={`transition-colors hover:text-foreground ${
-							"sponsors" === url
-								? "border-b-2 border-black dark:border-white"
-								: "text-muted-foreground"
-						}`}
+						className={`transition-colors hover:text-foreground ${"sponsors" === url
+							? "border-b-2 border-black dark:border-white"
+							: "text-muted-foreground"
+							}`}
 					>
 						Sponsors
 					</a>
 					<a
 						href="/event/myevent"
-						className={`transition-colors hover:text-foreground ${
-							url === "myevent"
-								? "border-b-2 border-black dark:border-white"
-								: "text-muted-foreground"
-						}`}
+						className={`transition-colors hover:text-foreground ${url === "myevent"
+							? "border-b-2 border-black dark:border-white"
+							: "text-muted-foreground"
+							}`}
 					>
 						My Events
 					</a>
@@ -70,8 +67,8 @@ export function DashboardLayout(props) {
 								className="flex items-center gap-2 text-lg font-semibold"
 							>
 								<div className="logo flex gap-2 items-center">
-									<Package2 className="h-6 w-6" />
-									<span className="">Sponsorify</span>
+									<img src="/logo.png" alt="Sponsorify" className="h-7 w-7" />
+									<span className="font-semibold">Sponsorify</span>
 								</div>
 							</a>
 							<a

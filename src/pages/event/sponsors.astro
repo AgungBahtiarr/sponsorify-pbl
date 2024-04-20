@@ -9,7 +9,8 @@ let category = ""
 let sponsorList = await db
   .select()
   .from(Sponsor)
-  .leftJoin(Categories, eq(Sponsor.id, Categories.id));
+  .leftJoin(Categories, eq(Sponsor.idCategory, Categories.id));
+  console.log(sponsorList);
 
 if (Astro.request.method === "POST") {
   const formData = await Astro.request.formData();
@@ -18,7 +19,7 @@ if (Astro.request.method === "POST") {
   sponsorList = await db
   .select()
   .from(Sponsor)
-  .leftJoin(Categories, eq(Sponsor.id, Categories.id)).where(eq(Categories.category, category));
+  .leftJoin(Categories, eq(Sponsor.idCategory, Categories.id)).where(eq(Categories.category, category));
 
 }
 

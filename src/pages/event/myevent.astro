@@ -4,6 +4,7 @@ import EventTable from "@/components/eventtable";
 import EventForm from "@/components/eventform";
 import { db, Events, Users, eq } from "astro:db";
 import NoEvent from "@/components/noevent";
+import { Event } from "@/lib/event";
 
 import { utapi } from "@/server/uploadthing";
 
@@ -21,21 +22,21 @@ if (Astro.request.method === "POST") {
     const name = formData.get("name");
     const description = formData.get("description");
     const rawDate = formData.get("startDate");
-    const startDate = new Date(rawDate.toString());
     const proposal = formData.get("proposal");
     const location = formData.get("location");
+    const idUser = authUser[0].id;
+    const addEvent = Event.addEvent(
+      name,
+      description,
+      rawDate,
+      proposal,
+      location,
+      idUser,
+    );
 
-    await db.insert(Events).values({
-      id: null,
-      name: name.toString(),
-      description: description.toString(),
-      location: location.toString(),
-      startDate: startDate,
-      proposal: proposal.toString(),
-      idUser: authUser[0].id,
-    });
-
-    return Astro.redirect("/event/myevent");
+    if (addEvent) {
+      Astro.redirect("/event/myevent");
+    }
   }
 
   if (method === "delete") {
@@ -48,8 +49,6 @@ if (Astro.request.method === "POST") {
 }
 
 const events = await db.select().from(Events);
-
-// console.log(events);
 ---
 
 <EventLayout title="My Events">

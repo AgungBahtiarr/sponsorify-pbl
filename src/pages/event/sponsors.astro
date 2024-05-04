@@ -5,12 +5,11 @@ import CategoryList from "@/components/categorylist";
 import { db, Categories, Sponsor, eq } from "astro:db";
 
 let category = ""
-
 let sponsorList = await db
   .select()
   .from(Sponsor)
   .leftJoin(Categories, eq(Sponsor.idCategory, Categories.id));
-  console.log(sponsorList);
+
 
 if (Astro.request.method === "POST") {
   const formData = await Astro.request.formData();
@@ -24,8 +23,6 @@ if (Astro.request.method === "POST") {
 }
 
 const categoryList = await db.select().from(Categories);
-  
-
 ---
 
 <EventLayout title="Sponsor">

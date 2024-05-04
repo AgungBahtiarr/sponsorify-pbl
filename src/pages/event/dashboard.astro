@@ -1,6 +1,7 @@
 ---
 import EventLayout from "@/layouts/EventLayout.astro";
 import { db, Users, eq } from "astro:db";
+import { DashboardEvent } from "@/components/DashboardEvent";
 
 const currentUser = await Astro.locals.currentUser();
 
@@ -14,7 +15,5 @@ if (!currentUser) {
 ---
 
 <EventLayout title="Dashboard">
-    <div class="flex justify-center items-center h-[85vh]">
-        Hello {user[0].name}
-    </div>
+    <DashboardEvent client:load />
 </EventLayout>

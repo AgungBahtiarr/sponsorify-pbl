@@ -3,8 +3,8 @@ import { Button } from "./ui/button"
 export default function CategoryList(props) {
     const categoryList = props.categoryList;
     return (
-        <div>
-            <ul className="flex overflow-x-scroll justify-start md:justify-center gap-4">
+        <div className="overflow-x-scroll pb-4">
+            <ul className="flex justify-start md:justify-center gap-4">
                 <li><a href="/event/sponsors"><Button variant={props.current === "" ? "" : "outline"}>All</Button></a></li>
                 {
                     categoryList.map((cat) => {

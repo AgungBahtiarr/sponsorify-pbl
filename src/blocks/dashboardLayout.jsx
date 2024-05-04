@@ -3,9 +3,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { CardLayout } from "@/components/CardLayout";
+import { useState } from "react";
 
 export function DashboardLayout(props) {
 	const url = props.url;
+
+	const [query, setQuery] = useState("");
 	return (
 		<div className="flex min-h-screen w-full flex-col">
 			<header className="sticky z-10 top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
@@ -93,15 +96,22 @@ export function DashboardLayout(props) {
 					</SheetContent>
 				</Sheet>
 				<div className="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
-					<form className="ml-auto flex-1 sm:flex-initial">
+					<form className="ml-auto flex flex-1 sm:flex-initial">
 						<div className="relative">
 							<Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
 							<Input
 								type="search"
 								placeholder="Search sponsor...."
 								className="pl-8 sm:w-[300px] md:w-[200px] lg:w-[300px]"
+								name="search"
 							/>
+							<input type="hidden" name="method" value="search" />
 						</div>
+						<a href="/event/search/hello">
+							<Button size="icon" onClick={(e) => {
+								console.log(e.target.search.value);
+								// setQuery()
+							}}><Search /></Button></a>
 					</form>
 					{props.userButton}
 				</div>

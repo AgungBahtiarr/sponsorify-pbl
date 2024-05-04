@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "Sponsorify",
   "version": "0.0.1",
   "dependencies": {
     "@astrojs/db": "^0.9.8",

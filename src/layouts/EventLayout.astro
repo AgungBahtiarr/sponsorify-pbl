@@ -6,6 +6,14 @@ import { UserButton } from "astro-clerk-auth/components/interactive";
 
 const url = Astro.url.pathname;
 const urlValue = url.split("/");
+
+// if (Astro.request.method === "POST") {
+//   const formData = await Astro.request.formData();
+//   const method = formData.get("method");
+//   if (method === "search") {
+//     const query = formData.get("search");
+//   }
+// }
 ---
 
 <html lang="en">
@@ -15,6 +23,7 @@ const urlValue = url.split("/");
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" href="/favicon.svg" type="image/x-icon" />
     <title>{title} - Sponsorify</title>
+    <!-- <ViewTransitions /> -->
   </head>
   <body>
     <DashboardLayout client:load url={urlValue[2]}>

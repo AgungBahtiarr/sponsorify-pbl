@@ -37,7 +37,9 @@ export default function CardSponsor(props) {
                     <Button className="w-full" variant="outline">
                         View Details
                     </Button>
-                    <Button className="w-full">Upload</Button>
+                    <Button className="w-full">
+                        Upload
+                    </Button>
                 </div>
             </CardFooter>
         </Card>

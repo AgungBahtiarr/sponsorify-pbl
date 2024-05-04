@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button"
 import EventForm from "./eventform"
 
 export default function NoEvent() {
